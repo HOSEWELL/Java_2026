@@ -4,11 +4,12 @@ public class Main {
 
     public static void main(String[] args) {
         // Call different operator methods
-        arithmeticOperators();
-        assignmentOperators();
-        comparisonOperators();
-        logicalOperators();
-        incrementDecrementOperators();
+        calculateArea();
+        // arithmeticOperators();
+        // assignmentOperators();
+        // comparisonOperators();
+        // logicalOperators();
+        // incrementDecrementOperators();
     
     }
 
@@ -133,5 +134,14 @@ public class Main {
         a = 5; 
         System.out.println("Pre-decrement a: " + (--a)); 
         System.out.println("After Pre-decrement a: " + a); 
+    }
+
+
+
+    //  using method from methods folder to calculate area of circle
+
+    public static void calculateArea(){
+        com.github.hosewell.methods.Main.calculateCircleArea(5.0);
+
     }
 }
