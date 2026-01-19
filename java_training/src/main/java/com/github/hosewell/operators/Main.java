@@ -3,13 +3,14 @@ package com.github.hosewell.operators;
 public class Main {
 
     public static void main(String[] args) {
+
         // Call different operator methods
-        calculateArea();
-        // arithmeticOperators();
-        // assignmentOperators();
-        // comparisonOperators();
-        // logicalOperators();
-        // incrementDecrementOperators();
+        
+        arithmeticOperators();
+        assignmentOperators();
+        comparisonOperators();
+        logicalOperators();
+        incrementDecrementOperators();
     
     }
 
@@ -136,12 +137,4 @@ public class Main {
         System.out.println("After Pre-decrement a: " + a); 
     }
 
-
-
-    //  using method from methods folder to calculate area of circle
-
-    public static void calculateArea(){
-        com.github.hosewell.methods.Main.calculateCircleArea(5.0);
-
-    }
 }
