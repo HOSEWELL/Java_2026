@@ -1,6 +1,4 @@
-package com.github.hosewell.calculator;
-
-    
+package com.github.hosewell.calculator;    
 import java.util.Scanner;
 
 public class SimpleCalculator_Hosewell {
@@ -47,7 +45,7 @@ public class SimpleCalculator_Hosewell {
         }
 
         if (validOperation) {
-            System.out.println("The final result is: " + result);
+            System.out.println("Answer is: " + result);
         }
 
         scanner.close();
