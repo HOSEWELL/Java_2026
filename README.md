@@ -1,4 +1,5 @@
 🚀 My Java Learning Journey: From Basics to Mastery
+
 Welcome to my Java repository! I am Hosewell, and I am dedicated to learning Java "all the way"—from the very first Hello World to building complex, object-oriented systems.
 
 📌 Project Overview
@@ -24,16 +25,8 @@ Step-by-step verification of user input using Scanner.
 
 Ensuring data constraints (e.g., validating 6-character alphanumeric IDs or GPA ranges).
 
-🛠️ Project Structure
-bank/: BankAccount class with deposit/withdraw logic.
-
-school/: Student class implementing strict encapsulation.
-
-university/: Inheritance hierarchy (Students, Professors, Staff).
-
-assignments/: Daily coding tasks and problem-solving.
-
 🎯 Current Goal
+
 "I am learning Java all the way. My goal is to master clean code, efficient algorithms, and robust software design."
 
 📬 Contact
