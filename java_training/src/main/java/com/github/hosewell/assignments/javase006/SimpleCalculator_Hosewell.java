@@ -1,4 +1,4 @@
-package com.github.hosewell.calculator;    
+package com.github.hosewell.assignments.javase006;    
 import java.util.Scanner;
 
 public class SimpleCalculator_Hosewell {

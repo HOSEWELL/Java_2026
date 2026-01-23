@@ -1,4 +1,4 @@
-package com.github.hosewell.calc;
+package com.github.hosewell.assignments.javase005;
 import java.util.Scanner;
 
 public class Main {

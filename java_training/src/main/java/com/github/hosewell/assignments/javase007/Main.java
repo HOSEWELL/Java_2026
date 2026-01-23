@@ -1,4 +1,4 @@
-package com.github.hosewell.bank;
+package com.github.hosewell.assignments.javase007;
 
 public class Main {
     public static void main(String[] args) {
