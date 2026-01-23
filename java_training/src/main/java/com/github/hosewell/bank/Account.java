@@ -40,6 +40,7 @@ public class Account {
         } else {
             System.out.println("Invalid deposit amount.");
         }
+        input.close();
     }
 
     // NEW Withdraw Method: No parameters, uses a prompt instead
@@ -54,6 +55,8 @@ public class Account {
         } else {
             System.out.println("Transaction failed: Insufficient funds or invalid amount.");
         }
+
+        input.close();
     }
 
     public void displayBalance() {
