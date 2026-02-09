@@ -1,39 +1,55 @@
 package com.github.hosewell.iterator;
 
+
 public class Book {
-    private String authorName;
+    private String name;
     private String isbn;
-    private String year;
+    private int year;
+    private String authorName;
 
-
-    public Book (String authorName, String isbn, String year){
-
-        this.authorName = authorName;
-        this.isbn = isbn;
-        this.year = year;
+    public Book(String name, String isbn, int year, String authorName) {
+        setName(name);
+        setIsbn(isbn);
+        setYear(year);
+        setAuthorName(authorName);
 
     }
 
-    public void setAuthorName(String authorName) {
-        this.authorName = authorName;
+    public String getName() {
+        return name;
     }
-    public String getAuthorName() {
-        return authorName;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getIsbn() {
+        return isbn;
     }
 
     public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
-    public String getIsbn() {
-        return isbn;
-    }
 
-    public void setYear(String year) {
-        this.year = year;
-    }
-    public String getYear() {
+    public int getYear() {
         return year;
     }
 
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public String getAuthorName() {
+        return authorName;
+    }
+
+    public void setAuthorName(String authorName) {
+        this.authorName = authorName;
+    }
+
+    @Override
+    public String toString() {
+        return "Book [name=" + name + ", isbn=" + isbn + ", year=" + year + ", authorName=" + authorName + "]";
+    }
 
 }
