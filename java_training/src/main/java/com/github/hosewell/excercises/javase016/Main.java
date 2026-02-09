@@ -16,9 +16,8 @@ public class Main {
 
         // 4. Searching
         db.findStudentById("S001");
-        db.findStudentById("S999"); // Doesn't exist
+        db.findStudentById("S999"); // Doesn't exist so i expect error message
 
-        // 5. Final Display
         db.displayAll();
     }
 }
