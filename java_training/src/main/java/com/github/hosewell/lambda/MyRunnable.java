@@ -1,9 +1,7 @@
 package com.github.hosewell.lambda;
 
 @FunctionalInterface
-
-public interface Export {
-    void export(String a);
+public interface MyRunnable extends Runnable {
 
     default void print(String content) {
 
@@ -16,4 +14,5 @@ public interface Export {
     private void showInfo() {
 
     }
+
 }
