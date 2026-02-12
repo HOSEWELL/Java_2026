@@ -15,8 +15,29 @@ public class Main {
     public static void main(String[] args) {
 
         // lambdaSyntaxAndFunctionalInterface();
-        commonBuiltInFunctionalInterfaces();
+        // commonBuiltInFunctionalInterfaces();
+        effectiveFinalVariables();
 
+
+    }
+
+
+    //    private   static  String prefix ="Mr. ";
+    private static void effectiveFinalVariables() {
+         String prefix = "Mr."; // effectively
+        Consumer<String> consumer = s-> {
+//            prefix = "test"; //throws an compilation error 
+            System.out.println(prefix + s);
+        };
+        List<String> list = List.of("Abednego", "Mathew", "Ezra");
+        list.forEach(consumer);
+
+        // Static variable capture - no restrictions
+        Supplier<String> staticSupplier = () -> "Static value: " + StaticCounter.count;
+        System.out.println(staticSupplier.get());
+    }
+    class StaticCounter {
+        public static int count = 0;
     }
 
     private static void commonBuiltInFunctionalInterfaces() {
