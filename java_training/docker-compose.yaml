@@ -1,0 +1,56 @@
+services:
+  # --- PostgreSQL Section ---
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    restart: always
+    environment:
+      - POSTGRES_DB=generic
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=generic
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d generic"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - postgres_data:/var/lib/postgresql
+    ports:
+      - "5432:5432"
+
+  adminer:
+    image: adminer
+    container_name: adminer
+    restart: always
+    ports:
+      - "8083:8080"
+
+  # --- MySQL Section ---
+  mysql:
+    image: mysql:latest
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: generic
+      MYSQL_DATABASE: generic
+      MYSQL_USER: generic
+      MYSQL_PASSWORD: generic
+    restart: always
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      MYSQL_ROOT_PASSWORD: generic
+    restart: always
+    ports:
+      - "8081:80"
+
+# --- Shared Volumes Section ---
+volumes:
+  postgres_data:
+  mysql_data:
