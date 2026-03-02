@@ -4,69 +4,25 @@ orbs:
   maven: circleci/maven@1.4.1
 
 jobs:
-
-  test-and-build:
+  test-java:
     docker:
-      - image: cimg/openjdk:21.0.2
-        auth:
-          username: $DOCKERHUB_USERNAME
-          password: $DOCKERHUB_TOKEN   
-
-    working_directory: ~/repo
-
+      - image: cimg/openjdk:21.0
     steps:
       - checkout
-
-      - restore_cache:
-          keys:
-            - maven-repo-v1-{{ checksum "java_training/pom.xml" }}
-            - maven-repo-v1-
-
       - run:
-          name: Download Maven dependencies
-          command: |
-            cd java_training
-            mvn dependency:go-offline
-
-      - save_cache:
-          paths:
-            - ~/.m2/repository
-          key: maven-repo-v1-{{ checksum "java_training/pom.xml" }}
-
-      - run:
-          name: Run unit & integration tests
+          name: Run Maven Tests
           command: |
             cd java_training
             mvn test
-
-      - store_test_results:
-          path: java_training/target/surefire-reports
-
-      - store_artifacts:
-          path: java_training/target/surefire-reports
-          destination: test-results
-
       - run:
-          name: Package JAR (skipping tests)
+          name: Package JAR
           command: |
             cd java_training
             mvn package -DskipTests
-
-      - store_artifacts:
-          path: java_training/target/*.jar
-          destination: artifacts
-
-# -------------------------------------------------------------------
+      - store_test_results:
+          path: java_training/target/surefire-reports
 
 workflows:
-
-  build-and-test:
+  maven_workflow:
     jobs:
-      - test-and-build:
-          filters:
-            branches:
-              only:
-                - main
-                - develop
-                - /feature/.*/
-                - /hotfix/.*/
+      - test-java
