@@ -2,7 +2,6 @@ pipeline {
     agent any
 
     tools {
-        // This tells Jenkins to use the Java version you have installed
         jdk 'jdk21' 
     }
 
@@ -16,24 +15,29 @@ pipeline {
 
         stage('Compile') {
             steps {
-                echo '⚙️ Compiling Java source code...'
-                // If you have Maven installed on your Lenovo, we use 'mvn'
-                sh './mvnw clean compile' 
+                dir('java_training') { 
+                    echo '⚙️ Compiling Java source code...'
+                    sh 'chmod +x mvnw' 
+                    sh './mvnw clean compile' 
+                }
             }
         }
 
         stage('Run Tests') {
             steps {
-                echo '🧪 Running Unit Tests (JUnit)...'
-                // This specifically runs files like your AppTest.java
-                sh './mvnw test'
+                dir('java_training') { 
+                    echo '🧪 Running Unit Tests (JUnit)...'
+                    sh './mvnw test'
+                }
             }
         }
 
         stage('Package') {
             steps {
-                echo '📦 Packaging application into a JAR file...'
-                sh './mvnw package -DskipTests'
+                dir('java_training') { 
+                    echo '📦 Packaging application into a JAR file...'
+                    sh './mvnw package -DskipTests'
+                }
             }
         }
     }
