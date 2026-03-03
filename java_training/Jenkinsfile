@@ -3,7 +3,7 @@ pipeline {
 
     tools {
         jdk 'jdk21' 
-        maven 'maven3'
+        maven 'maven3' 
     }
 
     stages {
@@ -18,8 +18,7 @@ pipeline {
             steps {
                 dir('java_training') { 
                     echo '⚙️ Compiling Java source code...'
-                    sh 'chmod +x mvn' 
-                    sh './mvn clean compile' 
+                    sh 'mvn clean compile' 
                 }
             }
         }
@@ -28,7 +27,7 @@ pipeline {
             steps {
                 dir('java_training') { 
                     echo '🧪 Running Unit Tests (JUnit)...'
-                    sh './mvnw test'
+                    sh 'mvn test'
                 }
             }
         }
@@ -37,7 +36,7 @@ pipeline {
             steps {
                 dir('java_training') { 
                     echo '📦 Packaging application into a JAR file...'
-                    sh './mvnw package -DskipTests'
+                    sh 'mvn package -DskipTests'
                 }
             }
         }
