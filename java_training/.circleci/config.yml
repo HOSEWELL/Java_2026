@@ -1,8 +1,5 @@
 version: 2.1
 
-orbs:
-  maven: circleci/maven@1.4.1
-
 jobs:
   test-java:
     docker:
@@ -13,14 +10,12 @@ jobs:
           name: Run Maven Tests
           command: |
             cd java_training
-            mvn test
+            mvn test  # Changed from ./mvnw to mvn
       - run:
           name: Package JAR
           command: |
             cd java_training
-            mvn package -DskipTests
-      - store_test_results:
-          path: java_training/target/surefire-reports
+            mvn package -DskipTests # Changed from ./mvnw to mvn
 
 workflows:
   maven_workflow:
