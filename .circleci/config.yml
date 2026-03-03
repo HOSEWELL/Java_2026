@@ -1,0 +1,23 @@
+version: 2.1
+
+jobs:
+  test-java:
+    docker:
+      - image: cimg/openjdk:21.0
+    steps:
+      - checkout
+      - run:
+          name: Run Maven Tests
+          command: |
+            cd java_training
+            mvn test  # Changed from ./mvnw to mvn
+      - run:
+          name: Package JAR
+          command: |
+            cd java_training
+            mvn package -DskipTests # Changed from ./mvnw to mvn
+
+workflows:
+  maven_workflow:
+    jobs:
+      - test-java
