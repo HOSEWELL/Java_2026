@@ -1,0 +1,38 @@
+image: eclipse-temurin:21-jdk
+
+stages:
+  - build
+  - test
+  - package
+
+build_job:
+  stage: build
+  script:
+    - echo "Compiling the code..."
+    - cd java_training
+    - ./mvnw compile
+  artifacts:
+    paths:
+      - java_training/target/
+
+test_job:
+  stage: test
+  script:
+    - echo "Running Maven tests..."
+    - cd java_training
+    - ./mvnw test
+  artifacts:
+    when: always
+    reports:
+      junit: java_training/target/surefire-reports/TEST-*.xml
+
+package_job:
+  stage: package
+  script:
+    - echo "Packaging the application into a JAR file..."
+    - cd java_training
+    - ./mvnw package -DskipTests
+  artifacts:
+    paths:
+      - java_training/target/*.jar
+    expire_in: 1 week
