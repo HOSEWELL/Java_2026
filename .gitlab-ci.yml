@@ -9,8 +9,7 @@ build_job:
   stage: build
   script:
     - echo "Compiling the code..."
-    - cd java_training
-    - ./mvnw compile
+    - ./mvnw -f java_training/pom.xml compile
   artifacts:
     paths:
       - java_training/target/
@@ -19,8 +18,7 @@ test_job:
   stage: test
   script:
     - echo "Running Maven tests..."
-    - cd java_training
-    - ./mvnw test
+    - ./mvnw -f java_training/pom.xml test
   artifacts:
     when: always
     reports:
@@ -29,9 +27,8 @@ test_job:
 package_job:
   stage: package
   script:
-    - echo "Packaging the application into a JAR file..."
-    - cd java_training
-    - ./mvnw package -DskipTests
+    - echo "Packaging the application..."
+    - ./mvnw -f java_training/pom.xml package -DskipTests
   artifacts:
     paths:
       - java_training/target/*.jar
