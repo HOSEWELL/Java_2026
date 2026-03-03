@@ -18,7 +18,7 @@ pipeline {
             steps {
                 dir('java_training') { 
                     echo '⚙️ Compiling Java source code...'
-                    sh 'chmod +x mvnw' 
+                    sh 'chmod +x mvn' 
                     sh './mvn clean compile' 
                 }
             }
