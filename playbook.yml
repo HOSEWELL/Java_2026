@@ -1,0 +1,9 @@
+---
+- name: Deploy Java Application to Local Server
+  hosts: local_server
+  tasks:
+    - name: Ensure deployment directory exists
+      file:
+        path: /home/administrator/Desktop/Systech/Java_2026/deploy
+        state: directory
+        mode: '0755'
