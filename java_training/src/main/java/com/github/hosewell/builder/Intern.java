@@ -12,7 +12,6 @@ public class Intern {
         this.department = department;
     }
 
-
     public interface FirstNameStep {
         LastNameStep setFirstName(String firstName);
     }
